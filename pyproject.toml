@@ -7,6 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "jqdatasdk>=1.9.7",
     "matplotlib>=3.10.3",
+    "openai>=1.82.0",
     "psycopg2-binary>=2.9.10",
     "sqlalchemy>=2.0.41",
 ]
