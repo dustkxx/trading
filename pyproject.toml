@@ -1,0 +1,12 @@
+[project]
+name = "trading"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jqdatasdk>=1.9.7",
+    "matplotlib>=3.10.3",
+    "psycopg2-binary>=2.9.10",
+    "sqlalchemy>=2.0.41",
+]
