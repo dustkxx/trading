@@ -8,17 +8,32 @@ client = OpenAI(
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
 )
 
-completion = client.chat.completions.create(
-    # 模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
+# completion = client.chat.completions.create(
+#     # 模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
+#     model="qwen3-235b-a22b",
+#     # model="qwen-plus",
+#     messages=[
+#         # {"role": "system", "content": "You are a helpful assistant."},
+#         {"role": "user", "content": "你是否知道百度搜索引擎？"},
+#     ],
+#     # Qwen3模型通过enable_thinking参数控制思考过程（开源版默认True，商业版默认False）
+#     # 使用Qwen3开源版模型时，若未启用流式输出，请将下行取消注释，否则会报错
+#     extra_body={"enable_thinking": False},
+# )
+# print(completion.model_dump_json())
+
+with client.chat.completions.with_streaming_response.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "deepseek大模型是否OPENAI协议",
+        }
+    ],
     # model="qwen3-235b-a22b",
     model="qwen-plus",
-    messages=[
-        # {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "你是否知道百度搜索引擎？"},
-    ],
-    # Qwen3模型通过enable_thinking参数控制思考过程（开源版默认True，商业版默认False）
-    # 使用Qwen3开源版模型时，若未启用流式输出，请将下行取消注释，否则会报错
-    extra_body={"enable_thinking": False},
-)
-print(completion.model_dump_json())
+    extra_body={"enable_thinking": True},
+) as response:
+    print(response.headers.get("X-My-Header"))
 
+    for line in response.iter_lines():
+        print(line)
