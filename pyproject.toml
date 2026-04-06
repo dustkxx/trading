@@ -5,9 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "akshare>=1.17.25",
     "jqdatasdk>=1.9.7",
     "matplotlib>=3.10.3",
+    "mplfinance>=0.12.10b0",
     "openai>=1.82.0",
     "psycopg2-binary>=2.9.10",
+    "requests>=2.32.3",
     "sqlalchemy>=2.0.41",
 ]
