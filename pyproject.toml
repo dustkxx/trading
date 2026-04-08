@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "akshare>=1.17.25",
+    "akshare>=1.18.54",
     "jqdatasdk>=1.9.7",
     "matplotlib>=3.10.3",
     "mplfinance>=0.12.10b0",
